@@ -4,7 +4,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
   mode: "production",
-  devtool: false,
+  devtool: "source-map", // better for production
   output: {
     filename: "main.js",
     path: path.resolve(__dirname, "dist"),
