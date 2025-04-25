@@ -1,231 +1,121 @@
-.aldrich-regular {
-  font-family: "Aldrich", serif;
-  font-weight: 400;
-  font-style: normal;
-}
-
 body {
-  margin: 0px;
-  padding: 0px;
+  margin: 0;
+  padding: 0;
+  font-family: "Aldrich", sans-serif;
+  background-color: #f9f9f9;
+  color: #222;
 }
-#header {
+
+#app {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+  color: #2c2c2c;
+}
+
+.tagline {
+  font-size: 1rem;
+  color: #666;
+}
+
+.main-container {
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+.input-group {
   display: flex;
-  justify-content: space-between;
-  height: 80px;
-  background-color: black;
-  border-bottom: 1pt solid rgb(188, 187, 187);
+  gap: 10px;
+  margin-bottom: 20px;
 }
 
-#name {
-  color: rgb(187, 95, 187);
-  font-size: 36px;
-  align-self: center;
-  margin-left: 25px;
-  font-family: "Aldrich", serif;
+#zipInput {
+  flex: 1;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
 }
 
-#addToDo {
-  align-self: center;
-  margin-right: 25px;
-  background-color: rgb(187, 95, 187);
-  color: black;
-  border: none;
-  border-radius: 5px;
-  font-size: 25px;
+#searchBtn {
   padding: 10px 20px;
-  padding-top: 15px;
-  text-decoration: none;
-  font-family: "Aldrich", serif;
-}
-
-#main {
-  display: flex;
-}
-#navigation {
-  border-right: 1pt solid rgb(188, 187, 187);
-  background-color: rgb(32, 32, 32);
-  width: 20vw;
-  height: 100vh;
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  padding: 15px;
-}
-
-.navigationBtns {
-  display: block;
-  background-color: rgb(187, 95, 187);
-  color: black;
-  border: none;
-  border-radius: 5px;
-  font-size: 20px;
-  text-align: center;
-  text-decoration: none;
-  font-family: "Aldrich", serif;
-  width: 100%;
-  margin: 0px;
-  padding: 15px;
-  box-sizing: border-box;
-  margin-bottom: 15px;
-}
-
-.tab-content {
-  background-color: rgb(32, 32, 32);
-  width: 80vw;
-  height: 100vh;
-  padding: 15px;
-  padding-right: 30px;
-  box-sizing: border-box;
-}
-
-.toDosDiv {
+  font-size: 16px;
+  background-color: #bb5fbb;
   color: white;
-}
-
-#toDoForm input,
-#toDoForm select,
-#toDoForm textarea {
-  margin: 12px 0;
-  width: 100%;
-  padding: 12px;
-  border: 1pt solid rgb(188, 187, 187);
-  background-color: rgb(32, 32, 32);
-  color: rgb(188, 187, 187);
-  border-radius: 5px;
-  font-family: "Aldrich", serif;
-}
-
-#toDoForm input:focus {
-  background-color: rgb(32, 32, 32);
-  outline-color: rgb(187, 95, 187);
-}
-
-label {
-  color: rgb(188, 187, 187);
-  font-family: "Aldrich", serif;
-}
-
-#toDoForm #add-btn {
-  background-color: rgb(187, 95, 187);
-  color: black;
   border: none;
-  border-radius: 3px;
-  font-size: 20px;
-  text-align: center;
-  text-decoration: none;
-  font-family: "Aldrich", serif;
-  padding: 10px 15px 8px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s;
 }
 
-/* Change autocomplete styles in WebKit */
-input:-webkit-autofill,
-input:-webkit-autofill:hover,
-input:-webkit-autofill:focus,
-textarea:-webkit-autofill,
-textarea:-webkit-autofill:hover,
-textarea:-webkit-autofill:focus,
-select:-webkit-autofill,
-select:-webkit-autofill:hover,
-select:-webkit-autofill:focus {
-  -webkit-text-fill-color: rgb(188, 187, 187);
-  -webkit-box-shadow: 0 0 0px 1000px rgb(32, 32, 32) inset;
+#searchBtn:hover {
+  background-color: #a84ea8;
 }
 
-.toDosDiv {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin: 12px 0;
-  width: 100%;
-  padding: 12px;
-  border: 1pt solid rgb(188, 187, 187);
-  background-color: rgb(32, 32, 32);
-  color: rgb(188, 187, 187);
-  border-radius: 5px;
-  font-family: "Aldrich", serif;
-}
-
-.delete-btn {
-  background-color: rgb(188, 187, 187);
-  color: black;
-  border: solid 2pt black;
-  border-radius: 5px;
-  font-size: 15px;
-  text-align: center;
-  text-decoration: none;
-  font-family: "Aldrich", serif;
-  padding: 10px 15px 8px 15px;
-}
-
-#addProjectForm input,
-#addProjectForm select,
-#addProjectForm textarea {
-  margin: 12px 0;
-  border: 1pt solid rgb(188, 187, 187);
-  background-color: rgb(32, 32, 32);
-  color: rgb(188, 187, 187);
-  border-radius: 5px;
-  font-family: "Aldrich", serif;
-  width: 100%;
+.results {
+  margin-top: 20px;
+  background-color: #f2f2f2;
+  border-radius: 6px;
   padding: 15px;
-  box-sizing: border-box;
-  margin-bottom: 15px;
 }
 
-#project-add-btn {
-  background-color: rgb(187, 95, 187);
-  color: black;
-  border: none;
-  border-radius: 3px;
-  font-size: 20px;
+.results h2 {
+  margin-top: 0;
+  color: #333;
+}
+
+.results a {
+  display: inline-block;
+  margin-top: 10px;
+  color: #0056b3;
+  text-decoration: none;
+}
+
+.results a:hover {
+  text-decoration: underline;
+}
+
+.footer {
+  margin-top: 40px;
   text-align: center;
-  text-decoration: none;
-  font-family: "Aldrich", serif;
-  padding: 10px 15px 8px 15px;
+  font-size: 0.9rem;
+  color: #888;
 }
 
-.newProject {
-  display: flex;
-  background-color: rgb(187, 95, 187);
-  color: black;
-  border: none;
-  border-radius: 5px;
-  font-size: 20px;
-  align-items: center;
-  text-decoration: none;
-  font-family: "Aldrich", serif;
-  width: 100%;
-  margin: 0px;
-  padding: 15px;
-  box-sizing: border-box;
-  margin-bottom: 15px;
-  justify-content: space-between;
+.heart {
+  color: red;
 }
 
-.project-delete-btn {
-  background-color: rgb(187, 95, 187);
-  color: black;
-  border: 2pt solid black;
-  border-radius: 5px;
-  text-align: center;
-  text-decoration: none;
-  font-family: "Aldrich", serif;
-  font-size: 15px;
-  padding: 10px 15px 8px 15px;
-}
-
-.active {
-  display: block;
-}
-
-.hide {
+.hidden {
   display: none;
 }
+@media (max-width: 600px) {
+  .input-group {
+    flex-direction: column;
+  }
 
-h3 {
-  color: rgb(188, 187, 187);
-  font-size: 36px;
-  align-self: center;
-  margin-left: 25px;
-  font-family: "Aldrich", serif;
+  #searchBtn {
+    width: 100%;
+  }
+
+  #zipInput {
+    width: 100%;
+  }
+
+  .main-container {
+    padding: 15px;
+  }
 }
