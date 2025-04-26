@@ -3,6 +3,21 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+      let autocomplete;
+      function initAutocomplete() {
+        autocomplete = new google.maps.places.Autocomplete(
+          document.getElementById('addressInput'),
+          {
+            componentRestrictions: {'Country':['US']},
+            fields: ['place_id', 'geometry', 'name']
+          }); 
+      }
+    </script>
+    <script 
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDizY3AoobJX2jDrIH0VeChUcmKpVnDZTk&loading=async&libraries=places&callback=initAutocomplete"
+      async defer>
+    </script>
     <title>Poll Pal</title>
   </head>
   <body>
@@ -30,7 +45,7 @@
           <!-- If Successful -->
           <div id="resultSuccess" class="hidden">
             <h2>Upcoming Elections: </h2>
-            <div id="Info" class ="results">
+            <div id="Info" class="results">
               <h2 id="locationName"></h2>
               <!--Election Date-->
               <h3>Election Date:</h3>
@@ -39,7 +54,7 @@
               <h3>Resources:</h3>
               <a href="#" target="_blank" id="electionInfo">Election Info</a> <br> 
               <a href="#" target="_blank" id="registerLink">Register to Vote</a>
-          </div>
+            </div>
           </div>
 
           <!-- If not successful -->

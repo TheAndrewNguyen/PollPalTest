@@ -1,5 +1,6 @@
 import "./styles.css";
 
+
 document.getElementById("searchBtn").addEventListener("click", async () => {
   console.log("button got pressed")
   // getting the address 
