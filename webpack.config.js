@@ -13,6 +13,7 @@ module.exports = {
   devServer: {
     allowedHosts: ['44.220.155.22'], 
     watchFiles: ["./src/index.html"],
+    host: "0.0.0.0"
   },
   plugins: [
     new HtmlWebpackPlugin({
