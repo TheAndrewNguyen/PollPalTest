@@ -1,16 +1,22 @@
 import "./styles.css";
 
 document.getElementById("searchBtn").addEventListener("click", async () => {
+  console.log("button got pressed")
+  // getting the address 
   const address = document.getElementById("addressInput").value.trim();
 
+  // error handling for empty box 
   if (!address) {
     alert("Please enter a full address.");
     return;
   }
 
+  // encode the address 
   const encodedAddress = encodeURIComponent(address);
 
+  // if succesfful
   try {
+
     document.getElementById("results").classList.add("hidden");
     const response = await fetch(
       `http://44.220.155.22:3000/api/getBasicInfo/:${encodedAddress}`,
@@ -20,6 +26,8 @@ document.getElementById("searchBtn").addEventListener("click", async () => {
       throw new Error(`HTTP error! Status: ${response.status}`);
     }
 
+
+    // getting the data from api call 
     const data = await response.json();
     console.log("API Data:", data);
 
@@ -28,29 +36,28 @@ document.getElementById("searchBtn").addEventListener("click", async () => {
       data.name || "Unknown Election";
     document.getElementById("electionDate").textContent = data.date || "N/A";
 
+    console.log("location name edited"); 
+
+    // edit election info field 
     const electionInfo = document.getElementById("electionInfo");
     electionInfo.href = data.electionInfo || "#";
     electionInfo.textContent = "Election Info";
 
-   // document.getElementById("registrationDeadline").textContent =
-     // data.regDead || "N/A";
-
+    // regestration Link 
     const registerLink = document.getElementById("registerLink");
     registerLink.href = data.regLink || "#";
     registerLink.textContent = "Register to Vote";
 
-    // Unhide the results
-    document.getElementById("results").classList.remove("hidden");
+    // hiding and unhiding f
+    document.getElementById("resultFail").classList.add("hidden");        // hide the reusltsFail
+    document.getElementById("results").classList.remove("hidden");       // Unhide the results
+    document.getElementById("resultSuccess").classList.remove("hidden"); // uhide success message
+
 
   } catch (error) {
-    console.error("Error fetching election info:", error);
-
-    // Show a friendly error message instead of the normal results
-    document.getElementById("results").innerHTML = `
-      <h2>Wonderful! There are no elections within the next 4 weeks </h2>
-      <p>You are all caught up on Local Elections. Come back in a few weeks!</p>
-  `;
-
-    document.getElementById("results").classList.remove("hidden");
+      console.log(error); 
+      document.getElementById("results").classList.remove("hidden");    // unhide the whole results div 
+      document.getElementById("resultSuccess").classList.add("hidden"); // hide result success if it was there before 
+      document.getElementById("resultFail").classList.remove("hidden"); // unhide error message 
   }
 });

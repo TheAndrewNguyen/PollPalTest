@@ -3,15 +3,17 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Poll Pall Local</title>
+    <title>Poll Pal</title>
   </head>
   <body>
     <div id="app">
+      <!-- Header -->
       <header class="header">
-        <h1>Poll Pall Local</h1>
+        <h1>Poll Pal 🗳️</h1>
         <p class="tagline">Stay informed. Stay empowered.</p>
       </header>
 
+      <!-- Main Container -->
       <main class="main-container">
         <div class="input-group">
           <input
@@ -22,19 +24,40 @@
           <button id="searchBtn">Find Elections</button>
         </div>
 
+        <!-- Results Div -->
         <div id="results" class="results hidden">
-          <h2 id="locationName"></h2>
-          <p>
-            <strong>🗳️ Election Date:</strong> <span id="electionDate"></span>
-          </p>
-          <p>
-            <a href="#" id="electionInfo">Election Info</a>
-          </p>
-          <a href="#" id="registerLink">Register to Vote</a>
+          
+          <!-- If Successful -->
+          <div id="resultSuccess" class="results hidden">
+            <h2 id="locationName"></h2>
+
+            <h3>Election Date:</h3>
+            <p>📅 <span id="electionDate"></span></p>
+
+            <!-- Resources -->
+            <h3>Resources:</h3>
+            <p>
+              <a href="#" target="_blank" id="electionInfo">Election Info</a>
+            </p>
+            <p>
+              <a href="#" target="_blank" id="registerLink">Register to Vote</a>
+            </p>
+          </div>
+
+          <!-- If Not Successful -->
+          <div id="resultFail" class="results hidden">
+            <p>We do not have info on upcoming elections for this address yet.</p>
+            <p>Information about upcoming elections is usually available 2-4 weeks before an election.</p>
+            <p>You can also <a href="">try again</a>.</p>
+          </div>
+
         </div>
       </main>
 
-      <footer class="footer">Made with ❤️ for local communities.</footer>
+      <!-- Footer -->
+      <footer class="footer">
+        Powered by Google Civic API.
+      </footer>
     </div>
   </body>
 </html>
