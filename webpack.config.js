@@ -11,6 +11,7 @@ module.exports = {
     clean: true,
   },
   devServer: {
+    allowedHosts: 'all', 
     watchFiles: ["./src/index.html"],
   },
   plugins: [
