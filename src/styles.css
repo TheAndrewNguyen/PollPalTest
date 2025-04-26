@@ -42,7 +42,7 @@ body {
   margin-bottom: 20px;
 }
 
-#zipInput {
+#addressInput {
   flex: 1;
   padding: 10px;
   font-size: 16px;
@@ -118,4 +118,23 @@ body {
   .main-container {
     padding: 15px;
   }
+}
+
+#result {
+  margin-top: 20px;
+}
+
+.card {
+  background: #f9f9f9;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.card h2 {
+  margin-top: 0;
+}
+
+#search {
+  margin-bottom: 20px;
 }
