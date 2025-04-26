@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -14,23 +14,28 @@
 
       <main class="main-container">
         <div class="input-group">
-          <input type="text" id="addressInput" placeholder="Enter your full address" />
+          <input
+            type="text"
+            id="addressInput"
+            placeholder="Enter your full address"
+          />
           <button id="searchBtn">Find Elections</button>
         </div>
-        
 
         <div id="results" class="results hidden">
           <h2 id="locationName"></h2>
-          <p><strong>🗳️ Election Date:</strong> <span id="electionDate"></span></p>
-          <p><strong>🛑 Registration Deadline:</strong> <span id="registrationDeadline"></span></p>
+          <p>
+            <strong>🗳️ Election Date:</strong> <span id="electionDate"></span>
+          </p>
+          <p>
+            <strong>🛑 Registration Deadline:</strong>
+            <span id="registrationDeadline"></span>
+          </p>
           <a href="#" id="registerLink">Register to Vote</a>
         </div>
       </main>
 
-  
-      <footer class="footer">
-        Made with ❤️ for local communities.
-      </footer>
+      <footer class="footer">Made with ❤️ for local communities.</footer>
     </div>
   </body>
 </html>
