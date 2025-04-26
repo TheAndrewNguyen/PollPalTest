@@ -13,7 +13,7 @@ document.getElementById("searchBtn").addEventListener("click", async () => {
   try {
     document.getElementById("results").classList.add("hidden");
     const response = await fetch(
-      `http://44.220.155.22:3000/api/getBasicInfo/:${encodedAddress}`,
+      `https://cors-anywhere.herokuapp.com/http://44.220.155.22:3000/api/getBasicInfo/:${encodedAddress}`,
     );
 
     if (!response.ok) {
