@@ -11,7 +11,7 @@ module.exports = {
     clean: true,
   },
   devServer: {
-    allowedHosts: ['pollpal.mooo.com'], 
+    allowedHosts: ['44.220.155.22'], 
     watchFiles: ["./src/index.html"],
   },
   plugins: [
