@@ -13,7 +13,7 @@ document.getElementById("searchBtn").addEventListener("click", async () => {
   try {
     document.getElementById("results").classList.add("hidden");
     const response = await fetch(
-      `https://cors-anywhere.herokuapp.com/http://44.220.155.22:3000/api/getBasicInfo/:${encodedAddress}`,
+      `http://44.220.155.22:3000/api/getBasicInfo/:${encodedAddress}`,
     );
 
     if (!response.ok) {
@@ -27,8 +27,13 @@ document.getElementById("searchBtn").addEventListener("click", async () => {
     document.getElementById("locationName").textContent =
       data.name || "Unknown Election";
     document.getElementById("electionDate").textContent = data.date || "N/A";
-    document.getElementById("registrationDeadline").textContent =
-      data.regDead || "N/A";
+
+    const electionInfo = document.getElementById("electionInfo");
+    electionInfo.href = data.electionInfo || "#";
+    electionInfo.textContent = "Election Info";
+
+   // document.getElementById("registrationDeadline").textContent =
+     // data.regDead || "N/A";
 
     const registerLink = document.getElementById("registerLink");
     registerLink.href = data.regLink || "#";
@@ -36,6 +41,7 @@ document.getElementById("searchBtn").addEventListener("click", async () => {
 
     // Unhide the results
     document.getElementById("results").classList.remove("hidden");
+
   } catch (error) {
     console.error("Error fetching election info:", error);
 
