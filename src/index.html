@@ -9,7 +9,7 @@
     <div id="app">
       <!-- Header -->
       <header class="header">
-        <h1>Poll Pal 🗳️</h1>
+        <a href=""><h1>Poll Pal 🗳️</h1></a>
         <p class="tagline">Stay informed. Stay empowered.</p>
       </header>
 
@@ -25,19 +25,21 @@
         </div>
 
         <!-- Results Div -->
-        <div id="results" class="results hidden">
-          
+        <div id="results" class="hidden">
+        
           <!-- If Successful -->
-          <div id="resultSuccess" class="results hidden">
-            <h2 id="locationName"></h2>
-
-            <h3>Election Date:</h3>
-            <p>📅 <span id="electionDate"></span></p>
-
-            <!-- Resources -->
-            <h3>Resources:</h3>
-            <a href="#" target="_blank" id="electionInfo">Election Info</a> <br> 
-            <a href="#" target="_blank" id="registerLink">Register to Vote</a>
+          <div id="resultSuccess" class="hidden">
+            <h2>Upcoming Elections: </h2>
+            <div id="Info" class ="results">
+              <h2 id="locationName"></h2>
+              <!--Election Date-->
+              <h3>Election Date:</h3>
+              <p>📅 <span id="electionDate"></span></p>
+              <!-- Resources -->
+              <h3>Resources:</h3>
+              <a href="#" target="_blank" id="electionInfo">Election Info</a> <br> 
+              <a href="#" target="_blank" id="registerLink">Register to Vote</a>
+          </div>
           </div>
 
           <!-- If not successful -->

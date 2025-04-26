@@ -23,6 +23,10 @@ body {
   color: #2c2c2c;
 }
 
+a {
+  text-decoration: none; 
+}
+
 .tagline {
   font-size: 1rem;
   color: #666;
@@ -75,6 +79,11 @@ body {
 .results h2 {
   margin-top: 0;
   color: #333;
+}
+
+.results h3 {
+  margin: 0px; 
+  border: none; 
 }
 
 .results a {
