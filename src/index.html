@@ -9,8 +9,9 @@
         autocomplete = new google.maps.places.Autocomplete(
           document.getElementById('addressInput'),
           {
+            types: ['address'],
             componentRestrictions: {'Country':['US']},
-            fields: ['place_id', 'geometry', 'name']
+            fields: ['formatted_address']
           }); 
       }
     </script>
