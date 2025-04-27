@@ -2,6 +2,18 @@ import "./styles.css";
 
 
 document.getElementById("searchBtn").addEventListener("click", async () => {
+  await onSearch(); 
+});
+
+document.getElementById('addressInput').addEventListener('keydown', function(event) {
+  if (event.key === 'Enter') {
+    event.preventDefault();  // Prevent the default action (form submission)
+    // Trigger your search button click or any other action you want
+    document.getElementById('searchBtn').click();
+  }
+});
+
+async function onSearch() {
   console.log("button got pressed")
   // getting the address 
   const address = document.getElementById("addressInput").value.trim();
@@ -61,4 +73,4 @@ document.getElementById("searchBtn").addEventListener("click", async () => {
       document.getElementById("resultSuccess").classList.add("hidden"); // hide result success if it was there before 
       document.getElementById("resultFail").classList.remove("hidden"); // unhide error message 
   }
-});
+}
