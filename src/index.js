@@ -1,8 +1,11 @@
 import "./styles.css";
 
 
-document.getElementById("searchBtn").addEventListener("click", async () => {
-  await onSearch(); 
+document.getElementById("searchBtn").addEventListener("click", async (event) => {
+  var valid = await onSearch(); 
+  if(!valid) {
+    event.preventDefault(); 
+  }
 });
 
 document.getElementById('addressInput').addEventListener('keydown', function(event) {
@@ -17,12 +20,15 @@ async function onSearch() {
   console.log("button got pressed")
   // getting the address 
   const address = document.getElementById("addressInput").value.trim();
+  
+  const addressPattern = /.+, .+, .+/;   
 
-  // error handling for empty box 
-  if (!address) {
-    alert("Please enter a full address.");
-    return;
-  }
+    // error handling for empty box 
+    if (!address || !addressPattern.test(address)) {
+      document.getElementById("results").classList.add("hidden");   // hide any results from before
+      alert('Please enter a full address, including street, city, and state.');
+      return false; 
+    }
 
   // encode the address 
   const encodedAddress = encodeURIComponent(address);
@@ -58,8 +64,13 @@ async function onSearch() {
 
     // regestration Link 
     const registerLink = document.getElementById("registerLink");
-    registerLink.href = data.regLink || "#";
-    registerLink.textContent = "Register to Vote";
+    if(data.regLink) {
+      registerLink.href = data.regLink;
+      registerLink.textContent = "Register to Vote";
+      registerLink.style.display = "inline"; 
+    } else {
+      registerLink.style.display = "none"; 
+    }
 
     // hiding and unhiding f
     document.getElementById("resultFail").classList.add("hidden");        // hide the reusltsFail
@@ -73,4 +84,6 @@ async function onSearch() {
       document.getElementById("resultSuccess").classList.add("hidden"); // hide result success if it was there before 
       document.getElementById("resultFail").classList.remove("hidden"); // unhide error message 
   }
+
+  return true; 
 }
