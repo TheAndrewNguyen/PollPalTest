@@ -1,7 +1,8 @@
 /* eslint-env node */
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-const pages =['index', 'map']; 
+
+const pages =['index']; 
 
 module.exports = {
   mode: "production",

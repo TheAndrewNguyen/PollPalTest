@@ -1,6 +1,5 @@
 import "./styles.css";
 
-
 document.getElementById("searchBtn").addEventListener("click", async (event) => {
   var valid = await onSearch(); 
   if(!valid) {
