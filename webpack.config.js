@@ -1,7 +1,7 @@
 /* eslint-env node */
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-const pages =['index']; 
+const pages =['index', 'map']; 
 
 module.exports = {
   mode: "production",
@@ -23,7 +23,8 @@ module.exports = {
   devServer: {
     allowedHosts: ['44.220.155.22'], 
     watchFiles: ["./src/**/*.html"],
-    host: "0.0.0.0"
+    host: "0.0.0.0",
+    historyApiFallback: true, 
   },
   module: {
     rules: [
