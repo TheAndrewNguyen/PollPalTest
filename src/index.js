@@ -50,25 +50,38 @@ async function onSearch() {
     console.log("API Data:", data);
 
     // Fill in the results
+
+    // title 
     document.getElementById("locationName").textContent =
       data.name || "Unknown Election";
+    
+    // date 
     document.getElementById("electionDate").textContent = data.date || "N/A";
 
-    console.log("location name edited"); 
+    // polling hours 
+    const pollingHours = data.pollingHours;
+    const timeMatch = pollingHours.match(/\d{1,2} (am|pm)/g);
+    const timeRange = timeMatch ? timeMatch.join(" - ") : "N/A";
+    document.getElementById("pollingHours").textContent = timeRange;
 
     // edit election info field 
     const electionInfo = document.getElementById("electionInfo");
     electionInfo.href = data.electionInfo || "#";
-    electionInfo.textContent = "Election Info";
+    electionInfo.textContent = "More Election Info";
 
     // regestration Link 
     const registerLink = document.getElementById("registerLink");
+    const registerAnchor = document.getElementById("registerAnchor")
+
     if(data.regLink) {
       registerLink.href = data.regLink;
       registerLink.textContent = "Register to Vote";
-      registerLink.style.display = "inline"; 
+      registerLink.style.display = "inline";
+      registerLink.style.display = "inline";  
+      registerAnchor.style.display = "list-item"; 
     } else {
       registerLink.style.display = "none"; 
+      registerAnchor.style.display = "none"; 
     }
 
     // hiding and unhiding f
